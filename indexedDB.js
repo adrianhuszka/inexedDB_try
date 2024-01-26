@@ -14,9 +14,9 @@ function save(e) {
 }
 
 /**
- * Függvény amely, a mentést végzi az indexedDB
+ * Függvény, amely a mentést végzi az indexedDB-be
  * @param {object} data     JSON amit elment az indexedDB-be
- * @param {string} dbName   Az indexedDB adatbázis neve amit
+ * @param {string} dbName   Az indexedDB adatbázis neve
  */
 function saveToIndexedDB(data, dbName) {
     const req = window.indexedDB.open(dbName, 3);
@@ -38,7 +38,7 @@ function saveToIndexedDB(data, dbName) {
         console.log(`Database opened successfully: ${event.target.result}`)
         db = event.target.result;
 
-        // Olvasás, írásra nyitás
+        // Olvasás és írásra nyitás
         const transaction = db.transaction([dbName], "readwrite");
 
         transaction.oncomplete = (event) => {
